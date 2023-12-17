@@ -1,0 +1,34 @@
+{
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["get", "post"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "in",
+      "name": "inputDocument",
+      "databaseName": "Azure-resume",
+      "collectionName": "Counter",
+      "sqlQuery": "SELECT * FROM c WHERE c.id = '1'",
+      "connectionStringSetting": "AzureResumeConnectionString"
+      
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "out",
+      "name": "outputDocument",
+      "databaseName": "Azure-resume",
+      "createIfNotExists": false,
+      "collectionName": "Counter",
+      "connectionStringSetting": "AzureResumeConnectionString"
+    }
+  ]
+}
